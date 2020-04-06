@@ -20,12 +20,7 @@ namespace Hovedliste
         }
 
         // GET: Sagers
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Sager.ToListAsync());
-        //}
-
-        public ViewResult Index(string searchString)
+        public async Task<IActionResult> Index(string searchString)
         {
             var sager = from s in _context.Sager
                 select s;
@@ -36,7 +31,7 @@ namespace Hovedliste
                                                || s.Tekst.Contains(searchString));
             }
 
-            return View(sager.ToList());
+            return View(await sager.ToListAsync());
         }
 
         // GET: Sagers/Details/5

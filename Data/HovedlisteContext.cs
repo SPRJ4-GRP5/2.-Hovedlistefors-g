@@ -12,8 +12,8 @@ namespace Hovedliste.Data
         public HovedlisteContext(DbContextOptions<HovedlisteContext> options)
             : base(options)
         {
-
         }
         public DbSet<Sager> Sager { get; set; }
     }
+
 }

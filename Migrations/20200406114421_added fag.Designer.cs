@@ -3,14 +3,16 @@ using Hovedliste.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hovedliste.Migrations
 {
     [DbContext(typeof(HovedlisteContext))]
-    partial class HovedlisteContextModelSnapshot : ModelSnapshot
+    [Migration("20200406114421_added fag")]
+    partial class addedfag
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

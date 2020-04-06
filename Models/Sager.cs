@@ -11,5 +11,6 @@ namespace Hovedliste.Models
         public int Billede { get; set; }
         public string Emne { get; set; }
         public string Tekst { get; set; }
+        public string Fag { get; set; }
     }
 }

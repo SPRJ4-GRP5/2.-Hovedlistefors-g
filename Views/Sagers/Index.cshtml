@@ -7,7 +7,12 @@
 <h1>Hovedliste</h1>
 
 <div class="navbar">
-    <input type="text" placeholder="Search..">&nbsp;&nbsp;
+    <form asp-controller="Sagers" asp-action="Index">
+        <p>
+            <input type="text" placeholder="Search.." name="SearchString">&nbsp;&nbsp;
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
     <div class="dropdown">
         &nbsp;&nbsp;
         <button class="dropbtn">Filtering</button>
@@ -34,6 +39,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Tekst)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fag)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -50,6 +58,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Tekst)
                 </td>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Fag)
+                </th>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

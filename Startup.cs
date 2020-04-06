@@ -55,9 +55,8 @@ namespace Hovedliste
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Sagers}/{action=Index}/{id?}");
             });
-
         }
     }
 }

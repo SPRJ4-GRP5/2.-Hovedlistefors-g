@@ -6,6 +6,19 @@
 
 <h1>Hovedliste</h1>
 
+<div class="navbar">
+    <input type="text" placeholder="Search..">&nbsp;&nbsp;
+    <div class="dropdown">
+        &nbsp;&nbsp;
+        <button class="dropbtn">Filtering</button>
+        <div class="dropdown-content">
+            <a href="#">Rating</a>
+            <a href="#">Semester</a>
+            <a href="#">Et eller andet godt</a>
+        </div>
+    </div>
+</div>
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -25,23 +38,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Billede)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Emne)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tekst)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Billede)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Emne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tekst)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

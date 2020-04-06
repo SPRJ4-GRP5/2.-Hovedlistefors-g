@@ -16,7 +16,7 @@ namespace Hovedliste
 
         public SagersController(HovedlisteContext context)
         {
-            _context = context;
+            _context = context; //Dependency Injection
         }
 
         // GET: Sagers

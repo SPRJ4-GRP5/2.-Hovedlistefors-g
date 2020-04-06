@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var CurrentDateTime = DateTime.Now;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hovedlisten</h1>
+</div>
+
+<div class="navbar">
+    <a href="#home">Home</a>&nbsp;&nbsp;
+    <a href="#news">News</a>&nbsp;&nbsp;
+    <input type="text" placeholder="Search..">&nbsp;&nbsp;
+    <div class="dropdown">
+        &nbsp;&nbsp;
+        <button class="dropbtn">Filtering</button>
+        <div class="dropdown-content">
+            <a href="#">Rating</a>
+            <a href="#">Semester</a>
+            <a href="#">Et eller andet godt</a>
+        </div>
+    </div>
+</div>
+
+<div class="list" style="background-color: lightblue">
+    <div class="caseTitle">
+        <h5>Hjælp!</h5>
+        <div class="caseDesc">
+            <p>Der er en dværg i min have. Hvad skal jeg gøre?</p>
+        </div>
+    </div>
+   
+</div>
+
+<div class="list" style="background-color: lightblue">
+    <div class="caseTitle">
+        <h5>NGK for de vilde</h5>
+        <div class="caseDesc">
+            <p>Hjælp mig med at få et sindsygt liv med NGK</p>
+        </div>
+    </div>
+</div>
+
+<div class="list" style="background-color: lightblue">
+    <div class="caseTitle">
+        <h5>Søvnproblemet under Corona</h5>
+        <div class="caseDesc">
+            <p>Sover for meget</p>
+        </div>
+    </div>
+    
+</div>
+
+<div>
+    <p>The time and date is: @CurrentDateTime</p>
+</div>

@@ -7,6 +7,7 @@ namespace Hovedliste.Models
 {
     public class Sager
     {
+        public int Id { get; set; }
         public int Billede { get; set; }
         public string Emne { get; set; }
         public string Tekst { get; set; }

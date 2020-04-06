@@ -20,9 +20,23 @@ namespace Hovedliste
         }
 
         // GET: Sagers
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Sager.ToListAsync());
+        //}
+
+        public ViewResult Index(string searchString)
         {
-            return View(await _context.Sager.ToListAsync());
+            var sager = from s in _context.Sager
+                select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sager = sager.Where(s => s.Emne.Contains(searchString)
+                                               || s.Tekst.Contains(searchString));
+            }
+
+            return View(sager.ToList());
         }
 
         // GET: Sagers/Details/5

@@ -8,20 +8,20 @@
 
 <div class="navbar">
     <form asp-controller="Sagers" asp-action="Index">
-        <p>
-            <input type="text" placeholder="Search.." name="SearchString">&nbsp;&nbsp;
-            <input type="submit" value="Filter" />
-        </p>
+        &nbsp;&nbsp
+        <input type="text" placeholder="Search.." name="SearchString">&nbsp;&nbsp;
+        <select name="semester">
+            <option value="1">1. Semester</option>
+            <option value="2">2. Semester</option>
+            <option value="3">3. Semester</option>
+            <option value="4">4. Semester</option>
+            <option value="5">5. Semester</option>
+            <option value="6">6. Semester</option>
+            <option value="7">7. Semester</option>
+        </select>
+        &nbsp;&nbsp
+        <input type="submit" value="Filter" />
     </form>
-    <div class="dropdown">
-        &nbsp;&nbsp;
-        <button class="dropbtn">Filtering</button>
-        <div class="dropdown-content">
-            <a href="#">Rating</a>
-            <a href="#">Semester</a>
-            <a href="#">Et eller andet godt</a>
-        </div>
-    </div>
 </div>
 
 <p>
@@ -42,31 +42,37 @@
             <th>
                 @Html.DisplayNameFor(model => model.Fag)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Billede)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Emne)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tekst)
-                </td>
-                <th>
-                    @Html.DisplayFor(modelItem => item.Fag)
-                </th>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Billede)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tekst)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Fag)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </th>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

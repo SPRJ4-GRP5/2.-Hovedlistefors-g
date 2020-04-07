@@ -3,14 +3,16 @@ using Hovedliste.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Hovedliste.Migrations
 {
     [DbContext(typeof(HovedlisteContext))]
-    partial class HovedlisteContextModelSnapshot : ModelSnapshot
+    [Migration("20200407090229_AddedSemester")]
+    partial class AddedSemester
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,8 +36,8 @@ namespace Hovedliste.Migrations
                     b.Property<string>("Fag")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Semester")
-                        .HasColumnType("int");
+                    b.Property<string>("Semester")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tekst")
                         .HasColumnType("nvarchar(max)");

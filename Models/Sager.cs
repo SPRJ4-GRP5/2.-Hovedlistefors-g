@@ -12,5 +12,6 @@ namespace Hovedliste.Models
         public string Emne { get; set; }
         public string Tekst { get; set; }
         public string Fag { get; set; }
+        public int Semester { get; set; }
     }
 }

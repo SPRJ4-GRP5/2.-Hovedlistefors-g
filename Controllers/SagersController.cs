@@ -20,10 +20,10 @@ namespace Hovedliste
         }
 
         // GET: Sagers
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int Semester)
         {
             var sager = from s in _context.Sager
-                select s;
+                        select s;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -31,8 +31,25 @@ namespace Hovedliste
                                                || s.Tekst.Contains(searchString));
             }
 
+            if (Semester != 0)
+            {
+                sager = sager.Where(s => s.Semester.Equals(Semester));
+            }
+
             return View(await sager.ToListAsync());
         }
+
+        //public async Task<IActionResult> Index(int Semester)
+        //{
+        //    var sager = from s in _context.Sager
+        //        select s;
+        //    if (Semester != null)
+        //    {
+        //        sager = sager.Where(s => s.Semester.Equals(Semester));
+        //    }
+
+        //    return View(await sager.ToListAsync());
+        //}
 
         // GET: Sagers/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -63,7 +80,7 @@ namespace Hovedliste
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Billede,Emne,Tekst,Fag")] Sager sager)
+        public async Task<IActionResult> Create([Bind("Id,Billede,Emne,Tekst,Fag,Semester")] Sager sager)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +112,7 @@ namespace Hovedliste
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Billede,Emne,Tekst,Fag")] Sager sager)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Billede,Emne,Tekst,Fag,Semester")] Sager sager)
         {
             if (id != sager.Id)
             {

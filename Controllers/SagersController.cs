@@ -63,7 +63,7 @@ namespace Hovedliste
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Billede,Emne,Tekst")] Sager sager)
+        public async Task<IActionResult> Create([Bind("Id,Billede,Emne,Tekst,Fag")] Sager sager)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Hovedliste
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Billede,Emne,Tekst")] Sager sager)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Billede,Emne,Tekst,Fag")] Sager sager)
         {
             if (id != sager.Id)
             {

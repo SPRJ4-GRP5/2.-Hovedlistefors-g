@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Hovedliste.Models.Sager>
+﻿@model SagerViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Hovedliste</h1>
-//
+/
 <div class="navbar">
     <form asp-controller="Sagers" asp-action="Index">
         &nbsp;&nbsp
@@ -21,6 +21,16 @@
             <option value="7">7. Semester</option>
         </select>
         &nbsp;&nbsp
+        <select name="Fag">
+            <option value="0">Vælg Fag</option>
+            @foreach (var item in Model.Fag)
+            {
+                <option>
+                    @item
+                </option>
+            }
+        </select>
+        &nbsp;&nbsp
         <input type="submit" value="Filter" />
     </form>
 </div>
@@ -32,25 +42,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Billede)
+                Billede
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Emne)
+                Emne
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tekst)
+                Tekst
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Fag)
+                Fag
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Semester)
+               Semester
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Sager)
         {
         <tr>
             <td>

@@ -20,10 +20,17 @@ namespace Hovedliste
         }
 
         // GET: Sagers
-        public async Task<IActionResult> Index(string searchString, int Semester)
+        public async Task<IActionResult> Index(string searchString, int Semester, string Fag)
         {
+            var vm = new SagerViewModel();
+            
             var sager = from s in _context.Sager
                         select s;
+
+            var fagQuery = from s in _context.Sager
+                select s.Fag;
+
+            vm.Fag = await fagQuery.ToListAsync();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -36,7 +43,13 @@ namespace Hovedliste
                 sager = sager.Where(s => s.Semester.Equals(Semester));
             }
 
-            return View(await sager.ToListAsync());
+            if (Fag != null) 
+            {
+                sager= sager.Where(s => s.Fag.Equals(Fag));
+            }
+           
+            vm.Sager = await sager.ToListAsync();
+            return View(vm);
         }
 
         //public async Task<IActionResult> Index(int Semester)

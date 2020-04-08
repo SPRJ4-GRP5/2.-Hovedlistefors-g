@@ -20,7 +20,7 @@ namespace Hovedliste
         }
 
         // GET: Sagers
-        public async Task<IActionResult> Index(string searchString, int Semester, string Fag)
+        public async Task<IActionResult> Index(string searchString, int Semester, string Fag = "0")
         {
             var vm = new SagerViewModel();
             
@@ -43,9 +43,9 @@ namespace Hovedliste
                 sager = sager.Where(s => s.Semester.Equals(Semester));
             }
 
-            if (Fag != null) 
+            if (Fag != "0")
             {
-                sager= sager.Where(s => s.Fag.Equals(Fag));
+                sager = sager.Where(s => s.Fag.Equals(Fag));
             }
            
             vm.Sager = await sager.ToListAsync();
